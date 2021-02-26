@@ -25,15 +25,15 @@ val secondaryColor = Color(0xFFF4C797)
 val secondaryColorLight = Color(0xFFF6D2AB)
 
 val pastelColors = listOf(
-  Color(0xFFFCD4D4),
-  Color(0xFFFC9CA4),
-  Color(0xFFFCD4C4),
-  Color(0xFFACDCAC),
-  Color(0xFFB4DCDC),
-  Color(0xFF7CD4D4),
-  Color(0xFFCC9494),
-  Color(0xFFA4D4B4),
-  Color(0xFFDB89B2),
+    Color(0xFFFCD4D4),
+    Color(0xFFFC9CA4),
+    Color(0xFFFCD4C4),
+    Color(0xFFACDCAC),
+    Color(0xFFB4DCDC),
+    Color(0xFF7CD4D4),
+    Color(0xFFCC9494),
+    Color(0xFFA4D4B4),
+    Color(0xFFDB89B2),
 )
 
 val infoItemBg = Color(0xFFf2fbfd)

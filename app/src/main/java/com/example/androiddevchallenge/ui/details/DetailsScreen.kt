@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui.details
 
 import androidx.compose.foundation.Image
@@ -44,143 +59,141 @@ import java.util.Locale
 
 @Composable
 fun DetailsScreen(
-  puppy: Dog,
-  navigateBack: () -> Unit
+    puppy: Dog,
+    navigateBack: () -> Unit
 ) {
-  Surface(color = MaterialTheme.colors.background) {
-    Column(
-      modifier = Modifier.verticalScroll(rememberScrollState())
-    ) {
-      Header(puppy = puppy)
-      Info(puppy = puppy)
-    }
+    Surface(color = MaterialTheme.colors.background) {
+        Column(
+            modifier = Modifier.verticalScroll(rememberScrollState())
+        ) {
+            Header(puppy = puppy)
+            Info(puppy = puppy)
+        }
 
-    IconButton(onClick = navigateBack) {
-      Icon(
-        imageVector = Icons.Filled.ArrowBack,
-        contentDescription = "Back",
-        tint = Color.White
-      )
+        IconButton(onClick = navigateBack) {
+            Icon(
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "Back",
+                tint = Color.White
+            )
+        }
     }
-
-  }
 }
 
 @Composable
 private fun Header(
-  puppy: Dog
+    puppy: Dog
 ) {
-  CoilImage(
-    data = puppy.image.url,
-    contentDescription = puppy.name,
-    contentScale = ContentScale.Crop,
-    fadeIn = true,
-    modifier = Modifier
-      .fillMaxWidth()
-      .aspectRatio(1f)
-      .background(
-        Color.LightGray
-      )
-  )
+    CoilImage(
+        data = puppy.image.url,
+        contentDescription = puppy.name,
+        contentScale = ContentScale.Crop,
+        fadeIn = true,
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(
+                Color.LightGray
+            )
+    )
 }
 
 @Composable
 private fun Info(puppy: Dog) {
-  Column(
-    modifier = Modifier.padding(10.dp)
-  ) {
-    Text(
-      text = "Puppy",
-      style = MaterialTheme.typography.caption
-    )
-
-    Text(
-      text = puppy.name,
-      style = MaterialTheme.typography.h4
-    )
-
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-      Text(
-        text = puppy.breed,
-        style = MaterialTheme.typography.subtitle1
-      )
-    }
-
-    Row(
-      modifier = Modifier
-        .fillMaxWidth()
-        .padding(vertical = 30.dp)
-        .horizontalScroll(rememberScrollState()),
-      horizontalArrangement = Arrangement.SpaceEvenly
+    Column(
+        modifier = Modifier.padding(10.dp)
     ) {
-      InfoItem(title = "Sex", value = puppy.sex.value)
-      InfoItem(title = "Age", value = puppy.ageString)
-      InfoItem(title = "Color", value = puppy.color)
-      InfoItem(title = "Weight", value = "${puppy.weight} kg")
-    }
+        Text(
+            text = "Puppy",
+            style = MaterialTheme.typography.caption
+        )
 
-    Text(
-      text = "About",
-      style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
-    )
-    Spacer(modifier = Modifier.height(5.dp))
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-      Text(
-        text = puppy.description,
-        style = MaterialTheme.typography.subtitle1
-      )
-    }
+        Text(
+            text = puppy.name,
+            style = MaterialTheme.typography.h4
+        )
 
-    Button(
-      onClick = { },
-      shape = RoundedCornerShape(20.dp),
-      elevation = null,
-      modifier = Modifier
-        .fillMaxWidth()
-        .padding(20.dp)
-        .defaultMinSize(minHeight = 50.dp)
-    ) {
-      Image(
-        painter = painterResource(id = R.drawable.ic_paw),
-        contentDescription = "Paw",
-        modifier = Modifier.size(18.dp)
-      )
-      Spacer(modifier = Modifier.width(10.dp))
-      Text(
-        text = "Adopt Me".toUpperCase(Locale.getDefault())
-      )
-    }
+        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+            Text(
+                text = puppy.breed,
+                style = MaterialTheme.typography.subtitle1
+            )
+        }
 
-  }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 30.dp)
+                .horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            InfoItem(title = "Sex", value = puppy.sex.value)
+            InfoItem(title = "Age", value = puppy.ageString)
+            InfoItem(title = "Color", value = puppy.color)
+            InfoItem(title = "Weight", value = "${puppy.weight} kg")
+        }
+
+        Text(
+            text = "About",
+            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+        )
+        Spacer(modifier = Modifier.height(5.dp))
+        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+            Text(
+                text = puppy.description,
+                style = MaterialTheme.typography.subtitle1
+            )
+        }
+
+        Button(
+            onClick = { },
+            shape = RoundedCornerShape(20.dp),
+            elevation = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+                .defaultMinSize(minHeight = 50.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_paw),
+                contentDescription = "Paw",
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = "Adopt Me".toUpperCase(Locale.getDefault())
+            )
+        }
+    }
 }
 
 @Composable
 private fun InfoItem(title: String, value: String) {
-  Column(
-    modifier = Modifier
-      .defaultMinSize(
-        minWidth = 80.dp
-      )
-      .background(
-        color = infoItemBg,
-        shape = RoundedCornerShape(10.dp)
-      )
-      .padding(10.dp),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally
-  ) {
-    Text(
-      text = title,
-      color = MaterialTheme.colors.onPrimary,
-      style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
-    )
-    Spacer(modifier = Modifier.height(5.dp))
-    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-      Text(
-        text = value,
-        color = MaterialTheme.colors.onPrimary,
-        style = MaterialTheme.typography.subtitle2.copy(fontWeight = FontWeight.Normal)
-      )
+    Column(
+        modifier = Modifier
+            .defaultMinSize(
+                minWidth = 80.dp
+            )
+            .background(
+                color = infoItemBg,
+                shape = RoundedCornerShape(10.dp)
+            )
+            .padding(10.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = title,
+            color = MaterialTheme.colors.onPrimary,
+            style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+        )
+        Spacer(modifier = Modifier.height(5.dp))
+        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+            Text(
+                text = value,
+                color = MaterialTheme.colors.onPrimary,
+                style = MaterialTheme.typography.subtitle2.copy(fontWeight = FontWeight.Normal)
+            )
+        }
     }
-  }
 }

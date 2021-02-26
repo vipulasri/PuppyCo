@@ -30,53 +30,53 @@ import com.example.androiddevchallenge.ui.home.HomeScreen
 import com.example.androiddevchallenge.ui.theme.PuppyCoTheme
 
 class MainActivity : AppCompatActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      PuppyCoTheme {
-        PuppyCoApp()
-      }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            PuppyCoTheme {
+                PuppyCoApp()
+            }
+        }
     }
-  }
 }
 
 @Composable
 fun PuppyCoApp() {
-  val puppies = PuppyRepository.puppies
-  val navController = rememberNavController()
-  NavHost(navController, startDestination = Navigation.HomeScreen.title) {
-    composable(Navigation.HomeScreen.title) {
-      HomeScreen(
-        puppies = puppies,
-        navigateToPuppyDetails = { puppy ->
-          navController.navigate(Navigation.DetailScreen.title + "/${puppy.id}")
+    val puppies = PuppyRepository.puppies
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = Navigation.HomeScreen.title) {
+        composable(Navigation.HomeScreen.title) {
+            HomeScreen(
+                puppies = puppies,
+                navigateToPuppyDetails = { puppy ->
+                    navController.navigate(Navigation.DetailScreen.title + "/${puppy.id}")
+                }
+            )
         }
-      )
+        composable(Navigation.DetailScreen.title + "/{id}") { backStackEntry ->
+            val puppyId = backStackEntry.arguments?.getString("id")
+            val puppy = puppies.find { it.id == puppyId }
+                ?: throw IllegalStateException("puppy not found")
+            DetailsScreen(
+                puppy = puppy,
+                navigateBack = { navController.popBackStack() }
+            )
+        }
     }
-    composable(Navigation.DetailScreen.title+ "/{id}") { backStackEntry ->
-      val puppyId = backStackEntry.arguments?.getString("id")
-      val puppy = puppies.find { it.id == puppyId }
-        ?: throw IllegalStateException("puppy not found")
-      DetailsScreen(
-        puppy = puppy,
-        navigateBack = { navController.popBackStack() }
-      )
-    }
-  }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
-  PuppyCoTheme {
-    PuppyCoApp()
-  }
+    PuppyCoTheme {
+        PuppyCoApp()
+    }
 }
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
-  PuppyCoTheme(darkTheme = true) {
-    PuppyCoApp()
-  }
+    PuppyCoTheme(darkTheme = true) {
+        PuppyCoApp()
+    }
 }
