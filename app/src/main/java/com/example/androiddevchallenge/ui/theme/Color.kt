@@ -17,7 +17,6 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-
 val cyan100 = Color(0xFFB2EBF2)
 val cyan300 = Color(0xFF80DEEA)
 val cyan500 = Color(0xFF00BCD4)
@@ -36,3 +35,5 @@ val pastelColors = listOf(
   Color(0xFFA4D4B4),
   Color(0xFFDB89B2),
 )
+
+val infoItemBg = Color(0xFFf2fbfd)

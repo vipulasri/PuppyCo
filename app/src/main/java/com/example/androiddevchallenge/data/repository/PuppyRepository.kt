@@ -16,7 +16,7 @@ object PuppyRepository {
         url = "https://zamroo.s3.ap-south-1.amazonaws.com/images/product-images/pets/pets-for-adoption/medium/20180715125141-3789.jpg",
         width = 690,
         height = 690
-      )
+      ),
     ),
     Dog(
       id = "2",
