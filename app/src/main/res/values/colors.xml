@@ -13,6 +13,11 @@
     <color name="primaryColor">#FF65C0BF</color>
     <color name="primaryColorLight">#FF96D3D7</color>
     <color name="primaryColorVariant">#FF519a99</color>
+
+    <color name="cyan100">#FFB2EBF2</color>
+    <color name="cyan300">#FF4DD0E1</color>
+    <color name="cyan500">#FF00BCD4</color>
+
     <color name="secondaryColor">#FFF4C797</color>
 
     <color name="grey400">#bdbdbd</color>
