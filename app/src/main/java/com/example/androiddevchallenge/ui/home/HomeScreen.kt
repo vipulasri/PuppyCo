@@ -21,10 +21,12 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R.drawable
 import com.example.androiddevchallenge.data.model.Dog
+import com.example.androiddevchallenge.ui.theme.secondaryColor
 
 @Composable
 fun HomeScreen(
@@ -43,7 +45,7 @@ fun HomeScreen(
 @Composable
 private fun AppBar() {
   TopAppBar(
-    backgroundColor = MaterialTheme.colors.primary,
+    backgroundColor = MaterialTheme.colors.surface,
     title = {
       Row(
         modifier = Modifier
@@ -65,8 +67,9 @@ private fun AppBar() {
         Image(
           painter = painterResource(id = drawable.ic_paw),
           contentDescription = "Paw",
+          colorFilter = ColorFilter.tint(secondaryColor),
           modifier = Modifier
-            .size(16.dp)
+            .size(18.dp)
             .rotate(45f),
         )
       }

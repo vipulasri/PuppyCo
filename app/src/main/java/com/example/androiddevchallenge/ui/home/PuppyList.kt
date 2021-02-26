@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.model.Dog
 import com.example.androiddevchallenge.ui.components.StaggeredVerticalGrid
+import com.example.androiddevchallenge.ui.theme.pastelColors
 import com.example.androiddevchallenge.ui.theme.secondaryColorLight
 import dev.chrisbanes.accompanist.coil.CoilImage
 
@@ -54,7 +55,7 @@ private fun PuppyGridItem(
   Column(
     modifier = Modifier
       .fillMaxWidth()
-      .padding(vertical = 5.dp, horizontal = 10.dp)
+      .padding(5.dp)
       .clip(RoundedCornerShape(10.dp))
       .clickable {
         navigateToPuppyDetails.invoke(puppy)
@@ -72,7 +73,7 @@ private fun PuppyGridItem(
     Column(
       modifier = Modifier
         .fillMaxWidth()
-        .background(secondaryColorLight)
+        .background(pastelColors.random().copy(alpha = 0.5f))
         .padding(vertical = 10.dp, horizontal = 10.dp),
       verticalArrangement = Arrangement.SpaceEvenly
     ) {
