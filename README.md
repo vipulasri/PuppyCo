@@ -6,7 +6,8 @@
 
 
 ## :scroll: Description
-A submission for the #AndroidDevChallenge Jetpack Compose&nbsp;
+A submission for the #AndroidDevChallenge Jetpack Compose.
+
 Week 1. A puppy adoption sample app demonstrating building UI with compose.
 
 
