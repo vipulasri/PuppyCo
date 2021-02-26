@@ -12,7 +12,11 @@ object PuppyRepository {
       age = 4,
       sex = Dog.Sex.MALE,
       color = "Black, Yellow",
-      image = "https://zamroo.s3.ap-south-1.amazonaws.com/images/product-images/pets/pets-for-adoption/medium/20180715125141-3789.jpg"
+      image = Dog.Image(
+        url = "https://zamroo.s3.ap-south-1.amazonaws.com/images/product-images/pets/pets-for-adoption/medium/20180715125141-3789.jpg",
+        width = 690,
+        height = 690
+      )
     ),
     Dog(
       id = "2",
@@ -21,7 +25,11 @@ object PuppyRepository {
       age = 6,
       sex = Dog.Sex.FEMALE,
       color = "Black",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657585/1/?bust=1614266611"
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657585/1/?bust=1614266611",
+        width = 203,
+        height = 181
+      )
     ),
     Dog(
       id = "3",
@@ -30,7 +38,11 @@ object PuppyRepository {
       age = 5,
       sex = Dog.Sex.FEMALE,
       color = "Golden",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657565/1/?bust=1614266505&width=600"
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657565/1/?bust=1614266505&width=600",
+        width = 600,
+        height = 450
+      )
     ),
     Dog(
       id = "4",
@@ -39,7 +51,11 @@ object PuppyRepository {
       age = 12,
       sex = Dog.Sex.MALE,
       color = "White",
-      image = "https://qph.fs.quoracdn.net/main-qimg-0716a6c238786dab1ae7bc28dceab389"
+      image = Dog.Image(
+        url = "https://qph.fs.quoracdn.net/main-qimg-0716a6c238786dab1ae7bc28dceab389",
+        width = 482,
+        height = 720
+      )
     ),
     Dog(
       id = "5",
@@ -48,7 +64,11 @@ object PuppyRepository {
       age = 24,
       sex = Dog.Sex.MALE,
       color = "Apricot / Beige",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657577/1/?bust=1614267041&width=600"
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657577/1/?bust=1614267041&width=600",
+        width = 480,
+        height = 480
+      )
     ),
     Dog(
       id = "6",
@@ -57,7 +77,11 @@ object PuppyRepository {
       age = 4,
       sex = Dog.Sex.FEMALE,
       color = "Bicolor",
-      image = "https://i.pinimg.com/originals/8c/cf/ec/8ccfec7d5cb3c92265cbf153523eb9b5.jpg"
+      image = Dog.Image(
+        url = "https://i.pinimg.com/originals/8c/cf/ec/8ccfec7d5cb3c92265cbf153523eb9b5.jpg",
+        width = 883,
+        height = 1104
+      )
     ),
     Dog(
       id = "7",
@@ -66,7 +90,11 @@ object PuppyRepository {
       age = 18,
       sex = Dog.Sex.MALE,
       color = "Brown",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657518/3/?bust=1614266304&width=600",
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657518/3/?bust=1614266304&width=600",
+        width = 600,
+        height = 800
+      )
     ),
     Dog(
       id = "8",
@@ -75,7 +103,11 @@ object PuppyRepository {
       age = 6,
       sex = Dog.Sex.MALE,
       color = "Beige",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657462/6/?bust=1614266140&width=600",
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657462/6/?bust=1614266140&width=600",
+        width = 600,
+        height = 623
+      )
     ),
     Dog(
       id = "9",
@@ -83,8 +115,12 @@ object PuppyRepository {
       breed = "Mixed Shepherd",
       age = 12,
       sex = Dog.Sex.FEMALE,
-      color = "Black, Yellow / Tan / Blond / Fawn",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657482/1/?bust=1614266092&width=600",
+      color = "Black",
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657482/1/?bust=1614266092&width=600",
+        width = 600,
+        height = 800
+      )
     ),
     Dog(
       id = "10",
@@ -92,8 +128,12 @@ object PuppyRepository {
       breed = "Labrador Retriever",
       age = 6,
       sex = Dog.Sex.MALE,
-      color = "Black, Yellow / Tan / Blond / Fawn",
-      image = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657551/1/?bust=1614266887&width=600",
+      color = "Brown",
+      image = Dog.Image(
+        url = "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50657551/1/?bust=1614266887&width=600",
+        width = 500,
+        height = 357
+      )
     )
   )
 
