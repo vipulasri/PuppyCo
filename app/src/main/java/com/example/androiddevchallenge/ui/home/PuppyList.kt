@@ -1,15 +1,12 @@
 package com.example.androiddevchallenge.ui.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -25,13 +22,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.model.Dog
-import com.example.androiddevchallenge.data.repository.PuppyRepository
 import com.example.androiddevchallenge.ui.components.StaggeredVerticalGrid
 import com.example.androiddevchallenge.ui.theme.secondaryColorLight
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
-fun PuppyList() {
+fun PuppyList(
+  puppies: List<Dog>,
+  navigateToPuppyDetails: (Dog) -> Unit
+) {
   Column(
     modifier = Modifier
       .verticalScroll(rememberScrollState())
@@ -40,20 +39,26 @@ fun PuppyList() {
       maxColumnWidth = 250.dp,
       modifier = Modifier.padding(4.dp)
     ) {
-      PuppyRepository.puppies.forEach { puppy ->
-        PuppyGridItem(puppy = puppy)
+      puppies.forEach { puppy ->
+        PuppyGridItem(puppy = puppy, navigateToPuppyDetails)
       }
     }
   }
 }
 
 @Composable
-private fun PuppyGridItem(puppy: Dog) {
+private fun PuppyGridItem(
+  puppy: Dog,
+  navigateToPuppyDetails: (Dog) -> Unit
+) {
   Column(
     modifier = Modifier
       .fillMaxWidth()
       .padding(vertical = 5.dp, horizontal = 10.dp)
       .clip(RoundedCornerShape(10.dp))
+      .clickable {
+        navigateToPuppyDetails.invoke(puppy)
+      }
   ) {
     CoilImage(
       data = puppy.image.url,
@@ -74,49 +79,6 @@ private fun PuppyGridItem(puppy: Dog) {
       Text(
         text = puppy.name,
         style = MaterialTheme.typography.subtitle2
-      )
-      Text(
-        text = puppy.breed,
-        style = MaterialTheme.typography.body2
-      )
-      CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-        Text(
-          text = "${puppy.sex.value}, ${puppy.ageString}",
-          style = MaterialTheme.typography.caption
-        )
-      }
-    }
-  }
-}
-
-@Composable
-private fun PuppyListItem(puppy: Dog) {
-  Row(
-    modifier = Modifier
-      .fillMaxWidth()
-      .padding(vertical = 5.dp, horizontal = 10.dp)
-      .background(
-        color = Color.LightGray.copy(alpha = 0.2f),
-        shape = RoundedCornerShape(10.dp)
-      )
-      .padding(10.dp)
-  ) {
-    CoilImage(
-      data = puppy.image.url,
-      contentDescription = puppy.name,
-      contentScale = ContentScale.Crop,
-      fadeIn = true,
-      modifier = Modifier
-        .size(80.dp)
-        .clip(RoundedCornerShape(10.dp))
-    )
-    Spacer(modifier = Modifier.width(10.dp))
-    Column(
-      verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-      Text(
-        text = puppy.name,
-        style = MaterialTheme.typography.h6
       )
       Text(
         text = puppy.breed,

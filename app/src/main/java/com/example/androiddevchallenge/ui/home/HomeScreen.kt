@@ -24,14 +24,18 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R.drawable
+import com.example.androiddevchallenge.data.model.Dog
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+  puppies: List<Dog>,
+  navigateToPuppyDetails: (Dog) -> Unit
+) {
   Scaffold(
     topBar = { AppBar() }
   ) {
     Surface(color = MaterialTheme.colors.background) {
-      PuppyList()
+      PuppyList(puppies, navigateToPuppyDetails)
     }
   }
 }
